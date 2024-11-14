@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp7.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp7"
+    Shell.FlyoutBehavior="Disabled"
+    Title="MauiApp7">
+    <FlyoutItem Title="Menü">
+        <ShellContent
+        Title="Ana Sayfa"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+        <ShellContent Title="Kredi Hesaplama" ContentTemplate="{DataTemplate local:KrediHesaplama}" />
+        <ShellContent Title="Vücut Kitle İndeksi" ContentTemplate="{DataTemplate local:VücutKitleİndeksi}" />
+        <ShellContent Title="Renk Seçici" ContentTemplate="{DataTemplate local:RenkSecici}" />
+        <ShellContent Title="Yapılacaklar" ContentTemplate="{DataTemplate local:Yapılacaklar}" />
+    </FlyoutItem>
+
+</Shell>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp7.VücutKitleİndeksi"
+             Title="VücutKitleİndeksi">
+    <VerticalStackLayout>
+        <Label 
+            Text="VKI = kg / (boy * boy)" 
+            TextColor="Orange" 
+            FontSize="24" 
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+        <Grid Margin="10"
+              RowDefinitions="Auto,Auto,Auto,Auto"
+              ColumnDefinitions="Auto,*"
+              ColumnSpacing="10"
+              RowSpacing="5"
+              BackgroundColor="AliceBlue">
+
+
+            <Label Text="Kilonuz (kg):" 
+                   Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <Entry x:Name="WeightEntry" 
+                   Placeholder="Kilo girin" 
+                   Keyboard="Numeric" 
+                   Text="{Binding Source={x:Reference WeightSlider}, Path=Value, Mode=TwoWay}"
+                   Grid.Row="0" Grid.Column="1"/>
+
+            <Slider x:Name="WeightSlider"
+                    Minimum="30" Maximum="200" 
+                    Value="70" 
+                    Grid.Row="1" Grid.Column="1"
+                    ValueChanged="OnSliderValueChanged"/>
+
+
+            <Label Text="Boyunuz (m):" 
+                   Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <Entry x:Name="HeightEntry"
+                   Placeholder="Boy girin (örn: 1.75)"
+                   Keyboard="Numeric"
+                   Text="{Binding Source={x:Reference HeightSlider}, Path=Value, Mode=TwoWay}"
+                   Grid.Row="2" Grid.Column="1"/>
+
+            <Slider x:Name="HeightSlider"
+                    Minimum="1.2" Maximum="2.5" 
+                    Value="1.7"
+                    Grid.Row="3" Grid.Column="1"
+                    ValueChanged="OnSliderValueChanged"/>
+        </Grid>
+
+
+        <Label x:Name="ResultLabel"
+               Text="Vücut Kitle İndeksi: 0.0"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               TextColor="Blue"/>
+
+        <Label x:Name="VkiCategoryValueLabel" 
+               Text="Kategori: " 
+               Grid.Row="3" 
+               Grid.Column="1" 
+               HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,70 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp7.KrediHesaplama"
+             Title="Kredi Hesaplama">
+
+    <VerticalStackLayout Padding="20">
+
+        <Label Text="Kredi Hesaplama" 
+               TextColor="Orange" 
+               FontSize="30" 
+               TextDecorations="Underline"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+
+        <Picker x:Name="KrediTuruPicker" 
+                Title="Kredi Türü" 
+                HorizontalOptions="FillAndExpand">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>İhtiyaç Kredisi</x:String>
+                    <x:String>Konut Kredisi</x:String>
+                    <x:String>Taşıt Kredisi</x:String>
+                    <x:String>Ticari Kredi</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Grid Margin="10"
+              RowDefinitions="Auto,Auto,Auto"
+              ColumnDefinitions="Auto,*"
+              ColumnSpacing="10"
+              RowSpacing="5"
+              BackgroundColor="AliceBlue">
+
+            <Label Text="Kredi Tutarı (TL):" 
+                   Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <Entry x:Name="KrediTutarEntry" Placeholder="Örn: 10000" 
+                   Grid.Row="0" Grid.Column="1" 
+                   Keyboard="Numeric"/>
+
+            <Label Text="Faiz Oranı (%):" 
+                   Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <Entry x:Name="FaizOraniEntry" Placeholder="Örn: 1.5" 
+                   Grid.Row="1" Grid.Column="1" 
+                   Keyboard="Numeric"/>
+
+            <Label Text="Vade (Ay):" 
+                   Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <Entry x:Name="VadeEntry" Placeholder="Örn: 12" 
+                   Grid.Row="2" Grid.Column="1" 
+                   Keyboard="Numeric"/>
+        </Grid>
+
+        <Button Text="Hesapla" 
+                BackgroundColor="Orange" 
+                TextColor="White" 
+                FontAttributes="Bold"
+                Clicked="HesaplaButton_Clicked"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+        <Label x:Name="TaksitLabel" 
+               Text="Aylık Taksit: " 
+               FontSize="20" 
+               TextColor="Blue" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>
